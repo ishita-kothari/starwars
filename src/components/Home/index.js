@@ -21,9 +21,9 @@ const images = [
   },
   {
     url: 'https://exoplanets.nasa.gov/internal_resources/1806/',
-    title: 'Planet',
+    title: 'Planets',
     width: '100%',
-    linkTo: '/planet'
+    linkTo: '/planets'
   },
   {
     url: 'https://parade.com/wp-content/uploads/2022/03/Screen-Shot-2022-03-22-at-12.49.08-PM.png',
