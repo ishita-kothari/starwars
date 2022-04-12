@@ -1,7 +1,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 import {
   ImageButton,
@@ -11,6 +11,9 @@ import {
   ImageMarked,
 } from "./styles.js";
 import "./styles.css";
+import People from "../People/index.js";
+import Planets from "../Planet/index.js";
+import Movies from "../Movies/index.js";
 
 const images = [
   {
@@ -69,6 +72,19 @@ const Home = () => (
         </Grid>
       ))}
     </Grid>
+    <div className="routing-container">
+      <Route path={`/people`}>
+        <People />
+      </Route>
+
+      <Route path={`/planets`}>
+        <Planets />
+      </Route>
+
+      <Route path={`/movies`}>
+        <Movies />
+      </Route>
+    </div>
   </div>
 );
 

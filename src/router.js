@@ -5,18 +5,21 @@ import Movies from './components/Movies/index.js';
 
 const routes = [{
   path: '/',
-  exact: true,
   component: Home
-},{
-  path: '/people',
-  component: People
-}, {
-  path: '/planets',
-  component: Planets
-},{
-  path: '/movies',
-  component: Movies
-}]
+},
+// when home is the exact path:
+
+// {
+//   path: '/people',
+//   component: People
+// }, {
+//   path: '/planets',
+//   component: Planets
+// },{
+//   path: '/movies',
+//   component: Movies
+// }
+]
 
 export {
   routes
