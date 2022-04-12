@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import {routes} from './router.js'
+import './App.css'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="layout">
+    <Router>
+      <div className="header">
+        <Link to="/">
+          <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SW_opening_crawl_logo.svg/1200px-SW_opening_crawl_logo.svg.png"
+          alt="starwars"
+          className="avatar"/>
+        </Link>
+      </div>
+
+      <Switch>
+        {
+          routes.map(({component: Component, ...restProps}) => (
+            <Route
+            key={restProps.path}
+            {...restProps}
+            render={(props) => (<Component {...props}/>)}
+            />
+          ))
+        }
+      </Switch>
+    </Router>
     </div>
   );
 }
