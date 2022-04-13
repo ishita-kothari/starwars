@@ -110,8 +110,6 @@ const PersonDetail = ({
   );
 };
 
-// export default PersonDetail;
-
 const mapStateToProps = (state) => {
   return {
     peopleList: state.peopleReducer ,
