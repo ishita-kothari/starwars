@@ -14,4 +14,5 @@ img.avatar{
 .layout {
   min-height: 100vh;
   background-image: url('https://i.pinimg.com/originals/40/c7/12/40c712e5f3833bc38dbe1213da27069e.jpg');
+  padding-bottom: 20px;
 }

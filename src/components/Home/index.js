@@ -11,9 +11,10 @@ import {
   ImageMarked,
 } from "./styles.js";
 import "./styles.css";
-import People from "../People/index.js";
-import Planets from "../Planet/index.js";
-import Movies from "../Movies/index.js";
+
+const People = React.lazy(() => import("../People/index.js"));
+const Planets = React.lazy(() => import("../Planet/index"));
+const Movies = React.lazy(() => import("../Movies/index"));
 
 const images = [
   {
@@ -74,15 +75,54 @@ const Home = () => (
     </Grid>
     <div className="routing-container">
       <Route path={`/people`}>
-        <People />
+        <React.Suspense
+          fallback={
+            <Typography
+              variant="h4"
+              gutterBottom
+              component="div"
+              style={{ color: "#fff" }}
+            >
+              Loading ....
+            </Typography>
+          }
+        >
+          <People />
+        </React.Suspense>
       </Route>
 
       <Route path={`/planets`}>
-        <Planets />
+        <React.Suspense
+          fallback={
+            <Typography
+              variant="h4"
+              gutterBottom
+              component="div"
+              style={{ color: "#fff" }}
+            >
+              Loading ....
+            </Typography>
+          }
+        >
+          <Planets />
+        </React.Suspense>
       </Route>
 
       <Route path={`/movies`}>
-        <Movies />
+        <React.Suspense
+          fallback={
+            <Typography
+              variant="h4"
+              gutterBottom
+              component="div"
+              style={{ color: "#fff" }}
+            >
+              Loading ....
+            </Typography>
+          }
+        >
+          <Movies />
+        </React.Suspense>
       </Route>
     </div>
   </div>

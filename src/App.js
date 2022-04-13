@@ -21,7 +21,7 @@ const App = () => {
         </Link>
       </div>
 
-      <Switch>
+      {/* <Switch> */}
         {
           routes.map(({component: Component, ...restProps}) => (
             <Route
@@ -31,7 +31,7 @@ const App = () => {
             />
           ))
         }
-      </Switch>
+      {/* </Switch> */}
     </Router>
     </div>
   );
