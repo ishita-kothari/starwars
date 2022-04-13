@@ -50,10 +50,12 @@ const Planets = ({ getPlanetAction, planetList }) => {
                 setIsDetailsShown(false);
               }
             }}
+            size="small"
+            xs
           />
         </Paper>
       </Grid>
-      <Grid item md={4}>
+      <Grid item md={4} xs={12}>
         <Route path={`${path}/:planetId`}>
           <PlanetDetail />
         </Route>

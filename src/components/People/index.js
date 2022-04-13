@@ -49,10 +49,12 @@ const People = ({ getPeopleAction, peopleList }) => {
                 setIsDetailsShown(false)
               }
             }}
+            size="small"
+            xs
           />
         </Paper>
       </Grid>
-      <Grid item md={4}>
+      <Grid item md={4} xs={12}>
         <Route path={`${path}/:peopleId`}>
           <PersonDetail />
         </Route>
