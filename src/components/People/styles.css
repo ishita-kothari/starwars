@@ -1,0 +1,16 @@
+.paper-container {
+  margin: 10px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.title{
+  margin-left: 15px;
+}
+
+.person-title{
+  color: #1b88d1;
+  margin-right: 15px !important;
+}
