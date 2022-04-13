@@ -19,7 +19,7 @@ const Planet = ({
           Title:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {planet.name}
+          {planet.name.toUpperCase()}
         </Typography>
       </Paper>
 
@@ -33,7 +33,7 @@ const Planet = ({
           Terrain:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {planet.terrain}
+          {planet.terrain.toUpperCase()}
         </Typography>
       </Paper>
 

@@ -31,7 +31,7 @@ const MovieDetails = ({
 
   return (
     <div>
-      <div className="flex-center">
+      <div className="flex-center" style={{marginBottom: 10}}>
       <Typography
           variant="h4"
           gutterBottom

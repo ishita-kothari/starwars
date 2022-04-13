@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Getting Started with Create React App - Starwars Explorer
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `Clone App in local`
+https: https://github.com/ishita-kothari/starwars.git
+github CLI: gh repo clone ishita-kothari/starwars
+
+## install node_modules
 
 ## Available Scripts
 

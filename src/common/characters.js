@@ -19,7 +19,7 @@ const Characters = ({
           Name:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {person.name}
+          {person.name.toUpperCase()}
         </Typography>
       </Paper>
       <Paper elevation={24} className="paper-container">
@@ -58,7 +58,7 @@ const Characters = ({
           Hair Color:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {person.hair_color}
+          {person.hair_color.toUpperCase()}
         </Typography>
       </Paper>
       <Paper elevation={24} className="paper-container">
@@ -71,7 +71,7 @@ const Characters = ({
           Skin Color:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {person.skin_color}
+          {person.skin_color.toUpperCase()}
         </Typography>
       </Paper>
       <Paper elevation={24} className="paper-container">
@@ -84,7 +84,7 @@ const Characters = ({
           Gender:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {person.gender}
+          {person.gender.toUpperCase()}
         </Typography>
       </Paper>
       <Paper elevation={24} className="paper-container">
@@ -97,7 +97,7 @@ const Characters = ({
           Birth Year:
         </Typography>
         <Typography variant="span" gutterBottom component="div">
-          {person.birth_year}
+          {person.birth_year.toUpperCase()}
         </Typography>
       </Paper>
     </Card>
