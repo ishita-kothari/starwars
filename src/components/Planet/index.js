@@ -4,11 +4,8 @@ import Grid from "@mui/material/Grid";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {
   useRouteMatch,
-  useParams,
   Link,
   Route,
-  Router,
-  Switch,
   useHistory,
 } from "react-router-dom";
 import "../People/styles.css";

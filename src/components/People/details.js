@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteMatch, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -10,8 +10,7 @@ const PersonDetail = ({
   peopleList
 }) => {
   const { peopleId } = useParams();
-  const { url, path } = useRouteMatch();
-  const person = peopleList.results.find((id) => id.url.split("/")[5] == peopleId);
+  const person = peopleList.results.find((id) => id.url.split("/")[5] === peopleId);
 
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>

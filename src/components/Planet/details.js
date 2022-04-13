@@ -1,8 +1,7 @@
 import React from "react";
-import { useRouteMatch, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
-import { planetsArray } from "./index.js";
 import Typography from "@mui/material/Typography";
 import { connect } from "react-redux";
 import "../People/styles.css";
@@ -11,8 +10,7 @@ const PlanetDetail = ({
   planetList
 }) => {
   const { planetId } = useParams();
-  const { url, path } = useRouteMatch();
-  const planet = planetList.results.find((id) => id.url.split("/")[5] == planetId);
+  const planet = planetList.results.find((id) => id.url.split("/")[5] === planetId);
 
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>
