@@ -71,7 +71,6 @@ export const planetsArray = [
 
 const Planets = () => {
   const { url, path } = useRouteMatch();
-  console.log(url, path, "url");
   return (
     <Grid container spacing={1}>
       <Grid item xs={12} md={8}>

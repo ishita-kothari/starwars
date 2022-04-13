@@ -10,7 +10,6 @@ const PlanetDetail = () => {
   const { planetId } = useParams();
   const { url, path } = useRouteMatch();
   const planet = planetsArray.find((id) => id.url.split("/")[5] === planetId);
-  console.log("plane", planet);
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>
       <Paper elevation={24} className="paper-container">

@@ -2,16 +2,16 @@ import React from "react";
 import { useRouteMatch, useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
-import { peopleArray } from "./index.js";
 import Typography from "@mui/material/Typography";
 import "./styles.css";
+import { connect } from "react-redux";
 
-const PersonDetail = () => {
+const PersonDetail = ({
+  peopleList
+}) => {
   const { peopleId } = useParams();
-  console.log(peopleId);
   const { url, path } = useRouteMatch();
-  const person = peopleArray.find((id) => id.url.split("/")[5] === peopleId);
-  console.log("per", person);
+  const person = peopleList.results.find((id) => id.url.split("/")[5] == peopleId);
 
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>
@@ -110,4 +110,13 @@ const PersonDetail = () => {
   );
 };
 
-export default PersonDetail;
+// export default PersonDetail;
+
+const mapStateToProps = (state) => {
+  return {
+    peopleList: state.peopleReducer ,
+  };
+};
+
+export default connect(mapStateToProps, () => ({}))(PersonDetail);
+
