@@ -14,7 +14,7 @@ import "./styles.css";
 
 const People = React.lazy(() => import("../People/index.js"));
 const Planets = React.lazy(() => import("../Planet/index"));
-const Movies = React.lazy(() => import("../Movies/index"));
+const Movies = React.lazy(() => import("../Movies/index.tsx"));
 
 const images = [
   {
@@ -37,7 +37,7 @@ const images = [
   },
 ];
 
-const Home = () => (
+const Home:React.FC = () => (
   <div className="button-container">
     <Grid container spacing={1}>
       {images.map((image) => (

@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { connect } from "react-redux";
 import "../People/styles.css";
-import Planet from "../../common/planet";
+import Planet from "../../common/planet.tsx";
 
 const PlanetDetail = ({
   planetList

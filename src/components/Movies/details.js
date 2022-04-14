@@ -8,8 +8,8 @@ import {
   movieCharactesList,
   moviePlanetsList,
 } from "../../actions/moviesAction";
-import Characters from "../../common/characters";
-import Planet from "../../common/planet";
+import Characters from "../../common/characters.tsx";
+import Planet from "../../common/planet.tsx";
 import "../../index.css";
 
 const MovieDetails = ({

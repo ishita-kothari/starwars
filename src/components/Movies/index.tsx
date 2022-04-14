@@ -4,7 +4,26 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getMoviesList } from "../../actions/moviesAction";
 
-const Movies = ({ getMoviesAction, moviesList }) => {
+interface MoviesProps{
+  getMoviesAction: any;
+  moviesList: any
+}
+
+interface Movie{
+  title: string;
+  director: string;
+  producer: string;
+  release_date: string;
+  characters: Array<any>;
+  planets: Array<any>
+}
+
+interface Reducer{
+  moviesReducer:{
+    movies: any
+  }
+}
+const Movies = ({ getMoviesAction, moviesList }: MoviesProps) => {
   useEffect(() => {
     getMoviesAction();
   }, []);
@@ -12,7 +31,7 @@ const Movies = ({ getMoviesAction, moviesList }) => {
   return (
     <Grid container spacing={1}>
       {Object.keys(moviesList).length > 0 &&
-        moviesList.results.map((movie) => (
+        moviesList.results.map((movie: Movie) => (
           <Grid item xs={12} md={4}>
             <Card sx={{ minWidth: 275 }}>
               <Paper elevation={24} className="paper-container">
@@ -24,7 +43,7 @@ const Movies = ({ getMoviesAction, moviesList }) => {
                 >
                   Title:
                 </Typography>
-                <Typography variant="span" gutterBottom component="div">
+                <Typography variant="subtitle1" gutterBottom component="div">
                   {movie.title}
                 </Typography>
               </Paper>
@@ -38,7 +57,7 @@ const Movies = ({ getMoviesAction, moviesList }) => {
                 >
                   Director:
                 </Typography>
-                <Typography variant="span" gutterBottom component="div">
+                <Typography variant="subtitle1" gutterBottom component="div">
                   {movie.director}
                 </Typography>
               </Paper>
@@ -52,7 +71,7 @@ const Movies = ({ getMoviesAction, moviesList }) => {
                 >
                   Producer:
                 </Typography>
-                <Typography variant="span" gutterBottom component="div">
+                <Typography variant="subtitle1" gutterBottom component="div">
                   {movie.producer}
                 </Typography>
               </Paper>
@@ -66,7 +85,7 @@ const Movies = ({ getMoviesAction, moviesList }) => {
                 >
                   Release Date:
                 </Typography>
-                <Typography variant="span" gutterBottom component="div">
+                <Typography variant="subtitle1" gutterBottom component="div">
                   {movie.release_date}
                 </Typography>
               </Paper>
@@ -78,9 +97,6 @@ const Movies = ({ getMoviesAction, moviesList }) => {
                     state: {
                       characters: movie.characters,
                       planets: movie.planets,
-                      starships: movie.starships,
-                      vehicles: movie.vehicles,
-                      species: movie.species,
                       title: movie.title
                     },
                   }}
@@ -95,13 +111,13 @@ const Movies = ({ getMoviesAction, moviesList }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     getMoviesAction: () => getMoviesList(dispatch),
   };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: Reducer) => {
   return {
     moviesList: state.moviesReducer.movies || {},
   };

@@ -3,10 +3,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './reducers/index'
-import App from './App'
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-
+import App from './App.tsx'
 const store = createStore(rootReducer)
 
 render(

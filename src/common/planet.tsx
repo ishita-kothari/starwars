@@ -4,9 +4,16 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import "../components/People/styles.css";
 
+interface PlanetProps{
+  planet:{
+    name: string;
+    terrain: string;
+    population: number | string;
+  }
+}
 const Planet = ({
   planet
-}) => {
+}: PlanetProps) => {
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>
       <Paper elevation={24} className="paper-container">
@@ -18,7 +25,7 @@ const Planet = ({
         >
           Title:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {planet.name.toUpperCase()}
         </Typography>
       </Paper>
@@ -32,7 +39,7 @@ const Planet = ({
         >
           Terrain:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {planet.terrain.toUpperCase()}
         </Typography>
       </Paper>
@@ -46,7 +53,7 @@ const Planet = ({
         >
           Population:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {planet.population}
         </Typography>
       </Paper>

@@ -1,4 +1,4 @@
-import Home from './components/Home/index.js';
+import Home from './components/Home/index.tsx';
 import MovieDetails from './components/Movies/details.js';
 
 

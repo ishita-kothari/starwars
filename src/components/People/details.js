@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import "./styles.css";
 import { connect } from "react-redux";
-import Characters from "../../common/characters";
+import Characters from "../../common/characters.tsx";
 
 const PersonDetail = ({
   peopleList

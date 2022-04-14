@@ -4,9 +4,18 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import "../components/People/styles.css";
 
-const Characters = ({
-  person
-}) => {
+interface PersonProps {
+  person:{
+    name: string;
+    height: number;
+    mass: number;
+    hair_color: string;
+    skin_color: string;
+    gender: string;
+    birth_year: string
+  }
+}
+const Characters = ({person}: PersonProps) => {
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>
       <Paper elevation={24} className="paper-container">
@@ -18,7 +27,7 @@ const Characters = ({
         >
           Name:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.name.toUpperCase()}
         </Typography>
       </Paper>
@@ -31,7 +40,7 @@ const Characters = ({
         >
           Height:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.height}
         </Typography>
       </Paper>
@@ -44,7 +53,7 @@ const Characters = ({
         >
           Mass:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.mass}
         </Typography>
       </Paper>
@@ -57,7 +66,7 @@ const Characters = ({
         >
           Hair Color:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.hair_color.toUpperCase()}
         </Typography>
       </Paper>
@@ -70,7 +79,7 @@ const Characters = ({
         >
           Skin Color:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.skin_color.toUpperCase()}
         </Typography>
       </Paper>
@@ -83,7 +92,7 @@ const Characters = ({
         >
           Gender:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.gender.toUpperCase()}
         </Typography>
       </Paper>
@@ -96,7 +105,7 @@ const Characters = ({
         >
           Birth Year:
         </Typography>
-        <Typography variant="span" gutterBottom component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
           {person.birth_year.toUpperCase()}
         </Typography>
       </Paper>
