@@ -17,6 +17,7 @@ import { Pagination } from "@mui/material";
 const People = ({ getPeopleAction, peopleList }) => {
   const [isDetailsShown, setIsDetailsShown] = useState(false);
   const { url, path } = useRouteMatch();
+  const [currentPage, setCurrentPage] = useState(1)
   let history = useHistory();
 
   useEffect(() => {
@@ -26,10 +27,14 @@ const People = ({ getPeopleAction, peopleList }) => {
   return (
     <Grid container spacing={1}>
       <Grid item xs={12} md={8}>
+        {console.log('ppl list', peopleList)}
         {Object.keys(peopleList).length > 0 &&
           peopleList.results.map((item, id) => (
             <Link
-              to={`${url}/${item.url.split("/")[5]}`}
+              to={{
+                pathname: `${url}/${item.url.split("/")[5]}`,
+                search: `?page=${currentPage}`
+              }}
               onClick={() => setIsDetailsShown(true)}
             >
               <Paper elevation={24} className="paper-container">
@@ -48,6 +53,7 @@ const People = ({ getPeopleAction, peopleList }) => {
                 history.push("/people");
                 setIsDetailsShown(false)
               }
+              setCurrentPage(page)
             }}
             size="small"
             xs
@@ -56,7 +62,7 @@ const People = ({ getPeopleAction, peopleList }) => {
       </Grid>
       <Grid item md={4} xs={12}>
         <Route path={`${path}/:peopleId`}>
-          <PersonDetail />
+          <PersonDetail page={currentPage}/>
         </Route>
       </Grid>
     </Grid>
