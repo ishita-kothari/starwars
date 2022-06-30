@@ -5,7 +5,7 @@ import {
   TOTAL_MOVIES_RESULT,
 } from "./actionTypes";
 
-const storeMoviesList = (payload) => ({
+export const storeMoviesList = (payload) => ({
   type: TOTAL_MOVIES_RESULT,
   payload,
 });
@@ -25,7 +25,7 @@ export const getMoviesList = (dispatch) => {
     return axios
       .get(`https://swapi.dev/api/films`)
       .then((res) => {
-        dispatch(storeMoviesList(res.data));
+        dispatch(storeMoviesList(res.data.results));
         resolve(res);
       })
       .catch((err) => reject(err));
@@ -61,3 +61,20 @@ export const getMoviesPlanets = (dispatch, data) => {
       .catch((err) => reject(err));
   });
 };
+
+export const getMoviedBy = (dispatch, list) => {
+  console.log('list', list)
+  const newArr = list.map((item) => axios.get(item));
+  return new Promise((resolve, reject) => {
+    return axios
+      .all(newArr)
+      .then(
+        axios.spread((...res) => {
+          console.log('ress', res)
+          dispatch(storeMoviesList(res.map(i => i.data)))
+          resolve(res);
+        })
+      )
+      .catch((err) => reject(err));
+  });
+}

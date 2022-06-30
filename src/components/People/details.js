@@ -3,9 +3,11 @@ import { useParams } from "react-router-dom";
 import "./styles.css";
 import { connect } from "react-redux";
 import Characters from "../../common/characters";
+import { getMoviedBy } from "../../actions/moviesAction";
 
 const PersonDetail = ({
-  peopleList
+  peopleList,
+  getMoviedByAction
 }) => {
   const { peopleId } = useParams();
   const [person, setPerson] = useState()
@@ -17,17 +19,21 @@ const PersonDetail = ({
   }, [peopleList, peopleId])
   
   return (
-    person && <Characters person={person} />
+    person && <Characters person={person} getMoviedByAction={getMoviedByAction}/>
     
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  getMoviedByAction: (list) => getMoviedBy(dispatch, list)
+})
+
 const mapStateToProps = (state) => {
   return {
     peopleList: state.peopleReducer.list,
-    personDetail: state.peopleReducer.detail
+    personDetail: state.peopleReducer.detail,
   };
 };
 
-export default connect(mapStateToProps, () => ({}))(PersonDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PersonDetail);
 

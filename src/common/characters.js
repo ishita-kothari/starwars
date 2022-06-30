@@ -3,10 +3,9 @@ import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import "../components/People/styles.css";
+import { Link } from "react-router-dom";
 
-const Characters = ({
-  person
-}) => {
+const Characters = ({ person, getMoviedByAction }) => {
   return (
     <Card sx={{ minWidth: 275 }} style={{ marginTop: "10px" }}>
       <Paper elevation={24} className="paper-container">
@@ -100,9 +99,11 @@ const Characters = ({
           {person.birth_year.toUpperCase()}
         </Typography>
       </Paper>
+      <Paper elevation={24} className="paper-container">
+        <Link to={`/movieBy?character=${person.name}`} onClick={() => getMoviedByAction(person.films)}>Associated Movies</Link>
+      </Paper>
     </Card>
   );
 };
 
-export default Characters
-
+export default Characters;

@@ -12,7 +12,7 @@ export default (state = DEFAULT_STATE, action) => {
     case TOTAL_MOVIES_RESULT:
       return {
         ...state,
-        movies: { ...payload },
+        movies: payload ,
       };
     case MOVIE_CHARACTERS:
       return {
