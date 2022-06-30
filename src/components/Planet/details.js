@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Card from "@mui/material/Card";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+
 import { connect } from "react-redux";
 import "../People/styles.css";
 import Planet from "../../common/planet";
@@ -11,16 +9,22 @@ const PlanetDetail = ({
   planetList
 }) => {
   const { planetId } = useParams();
-  const planet = planetList.results.find((id) => id.url.split("/")[5] === planetId);
-
+  const [planet, setplanet] = useState()
+  console.log('planetddd', planetList)
+  useEffect(() => {
+    if(planetList){
+      setplanet(planetList.find((id) => id.url.split("/")[5] === planetId))
+    }
+  }, [planetList, planetId])
+  console.log('planet', planet)
   return (
-    <Planet planet={planet}/>
+    planet && <Planet planet={planet}/>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    planetList: state.planetsReducer ,
+    planetList: state.planetsReducer.list,
   };
 };
 

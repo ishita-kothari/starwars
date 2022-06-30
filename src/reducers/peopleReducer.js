@@ -1,4 +1,5 @@
-import { TOTAL_PEOPLE_RESULT } from "../actions/actionTypes";
+/* eslint-disable import/no-anonymous-default-export */
+import { PERSON_DETAIL, TOTAL_PEOPLE_RESULT } from "../actions/actionTypes";
 
 const DEFAULT_STATE = {}
  
@@ -7,8 +8,15 @@ const DEFAULT_STATE = {}
      switch (type) {
          case TOTAL_PEOPLE_RESULT:
              return {
-                 ...state, ...payload
+                 ...state, 
+                 list: payload.results,
+                 peopleAPIresponse: payload
              };
+        case PERSON_DETAIL: 
+             return {
+                 ...state,
+                 detail: payload
+             }
          default:
              return state
      }
