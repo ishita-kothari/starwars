@@ -14,7 +14,6 @@ const storePersonDetail = (payload) =>({
 export const getPeopleList = (dispatch, page = 1) => {
     return new Promise((resolve, reject) => {
         return axios.get(`https://swapi.dev/api/people/?page=${page}`).then((res) =>{
-            console.log('in list')
             dispatch(storePeopleList(res.data))
             resolve(res)
         }).catch(err => reject(err));

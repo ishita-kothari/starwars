@@ -7,7 +7,6 @@ const DEFAULT_STATE = {}
      const {type, payload} = action
      switch (type) {
          case TOTAL_PEOPLE_RESULT:
-             console.log('total result')
              return {
                  ...state, 
                  list: payload.results,
