@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { PERSON_DETAIL, TOTAL_PEOPLE_RESULT } from "../actions/actionTypes";
 
 const DEFAULT_STATE = {}
@@ -8,13 +9,15 @@ const DEFAULT_STATE = {}
          case TOTAL_PEOPLE_RESULT:
              console.log('total result')
              return {
-                 ...state, ...payload
+                 ...state, 
+                 list: payload.results,
+                 peopleAPIresponse: payload
              };
         case PERSON_DETAIL: 
-             const copiedState = JSON.parse(JSON.stringify(state))
-             console.log('copie', copiedState)
-             const filteredState = copiedState.results.filter(item => console.log('item', item, payload))
-             return state
+             return {
+                 ...state,
+                 detail: payload
+             }
          default:
              return state
      }
