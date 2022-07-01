@@ -13,7 +13,7 @@ const MoviesLayout = ({ moviesList, clearMoviesList }) => {
   
   return (
     <Grid container spacing={1}>
-      {moviesList.length > 0 &&
+      {moviesList.length > 0 ?
         moviesList.map((movie) => (
           <Grid item xs={12} md={4}>
             <Card sx={{ minWidth: 275 }}>
@@ -92,7 +92,7 @@ const MoviesLayout = ({ moviesList, clearMoviesList }) => {
               </Paper>
             </Card>
           </Grid>
-        ))}
+        )) : <p style={{ color: '#fff', fontSize: 40, width: '100%', textAlign: 'center'}}>No Films Found :((</p>}
     </Grid>
   );
 };
